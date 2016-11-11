@@ -28,7 +28,7 @@ Vagrant.configure("2") do |config|
 
     config.vm.provision "shell", path: "scripts/7x-host.sh"
     config.vm.provision "shell", path: "scripts/8x-host.sh"
-#     config.vm.provision "shell", path: "scripts/devmaster-host.sh"
+    config.vm.provision "shell", path: "scripts/devmaster-host.sh"
 
   end
 end
