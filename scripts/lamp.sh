@@ -77,6 +77,7 @@ mkdir /var/www/html
 echo "www-data:www123" | chpasswd
 chsh -s /bin/bash www-data
 sudo usermod -aG sudo www-data
+sed -i 's|[#]*PasswordAuthentication no|PasswordAuthentication yes|g' /etc/ssh/sshd_config
 
 chown www-data.www-data /var/www -R
 service apache2 restart

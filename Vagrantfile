@@ -5,8 +5,14 @@ Vagrant.configure("2") do |config|
 
   config.vm.box = "debian/jessie64"
 
-  config.vm.network :private_network, ip: "10.0.0.11"
-  config.vm.network :public_network, ip: "192.168.67.211", bridge: "en0: WLAN (AirPort)"
+  config.vm.network :private_network,
+    ip: "10.0.0.11",
+    hostsupdater: "skip"
+
+  config.vm.network :public_network,
+    ip: "192.168.67.211",
+    bridge: "en0: WLAN (AirPort)"
+
 #   config.vm.network "forwarded_port", guest: 3306, host: 3306
 
   config.vm.provider :virtualbox do |vb|
@@ -18,9 +24,9 @@ Vagrant.configure("2") do |config|
   
   config.vm.hostname = "local.typo3.org"
   config.hostsupdater.aliases = [
-  "7x.local.typo3.org",
-  "8x.local.typo3.org",
-  "dev-master.local.typo3.org"
+      "7x.local.typo3.org",
+      "8x.local.typo3.org",
+      "dev-master.local.typo3.org"
   ]
   
   if $mode=="install"
