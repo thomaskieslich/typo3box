@@ -9,9 +9,6 @@ echo "deb-src http://ftp.de.debian.org/debian/ jessie-updates contrib non-free" 
 echo "deb http://packages.dotdeb.org jessie all" >> /etc/apt/sources.list
 echo "deb-src http://packages.dotdeb.org jessie all" >> /etc/apt/sources.list
 
-#wget https://www.dotdeb.org/dotdeb.gpg
-#apt-key add dotdeb.gpg
-
 apt-get update
 apt-get -y --force-yes upgrade
 apt-get -y install graphicsmagick imagemagick git-core unzip python-setuptools graphviz curl virtualbox
@@ -24,8 +21,6 @@ a2enmod rewrite deflate expires headers actions alias
 apt-get -y --force-yes install php-zip php-mbstring php-pear php-bz2 php-curl php-xml php-soap
 apt-get -y --force-yes install php5-fpm php5-cli php5-gd php5-mysql php5-pgsql php5-sqlite php5-curl php5-mcrypt php5-imap php5-xmlrpc php5-xsl
 apt-get -y --force-yes install php7.0-fpm php7.0-cli php7.0-gd php7.0-mysql php7.0-pgsql php7.0-sqlite php7.0-curl php7.0-mcrypt php7.0-imap php7.0-xmlrpc php7.0-xsl
-#apt-get -y --force-yes install php7.0-fpm php7.0-gd php7.0-imap php7.0-json php7.0-mysql php7.0-xml php7.0-xmlrpc php7.0-zip php7.0-soap
-#apt-get -y --force-yes install php7.0-xdebug
 
 echo "
 <IfModule mod_fastcgi.c>
@@ -58,6 +53,22 @@ chmod +x /usr/local/bin/composer
 debconf-set-selections <<< 'mysql-server mysql-server/root_password password vagrant'
 debconf-set-selections <<< 'mysql-server mysql-server/root_password_again password vagrant'
 apt-get -y install mysql-server
+
+#  mysql -uroot -pvagrant
+#  mysql> show variables like "%character%";show variables like "%collation%";
+
+sed -i 's/\[mysql\]/[mysql] \
+default-character-set=utf8 /' /etc/mysql/my.cnf
+
+sed -i 's/\[client\]/[client] \
+default-character-set=utf8 /' /etc/mysql/my.cnf
+
+sed -i 's/\[mysqld\]/[mysqld] \
+collation-server = utf8_unicode_ci \
+init-connect='\''SET NAMES utf8'\'' \
+character-set-server = utf8 /' /etc/mysql/my.cnf
+
+service mysql restart
 
 rm -r /var/www/*
 mkdir -p /var/www

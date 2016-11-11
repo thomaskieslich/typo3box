@@ -1,20 +1,29 @@
 #!/usr/bin/env bash
 
-# mkdir /var/www/8x.local.typo3.org
-cd /var/www/8x.local.typo3.org
-#  rm -rf /var/www/8x.local.typo3.org/*
-#  sudo mysqladmin -uroot -pvagrant drop t3_8x_local;
+#mkdir /var/www/dev-master.local.typo3.org
+cd /var/www/dev-master.local.typo3.org
+#  rm -rf /var/www/dev-master.local.typo3.org/*
+#  sudo mysqladmin -uroot -pvagrant drop t3_devmaster_local;
 
 echo '
 {
   "repositories": [
     {
       "type": "composer",
-      "url": "https://composer.typo3.org/"
+      "url": "https://composer.typo3.org"
+    },
+    {
+      "type": "git",
+      "url": "https://github.com/dmitryd/typo3-realurl.git"
+    },
+    {
+      "type": "git",
+      "url": "https://github.com/TYPO3-Console/typo3_console.git"
     }
   ],
+   "minimum-stability": "dev",
   "require": {
-    "typo3/cms": "^8.4.0"
+    "typo3/cms": "dev-master as 8.4.0"
   },
   "extra": {
     "typo3/cms": {
@@ -39,10 +48,10 @@ composer require "dmitryd/typo3-realurl:^2.1.0"
     --database-user-password="vagrant" \
     --database-host-name="localhost" \
     --database-port="3306" \
-    --database-name="t3_8x_local" \
+    --database-name="t3_devmaster_local" \
     --admin-user-name="cms-admin" \
     --admin-password="admin123" \
-    --site-name="TYPO3 8x"
+    --site-name="TYPO3 dev-master"
 
 ./typo3cms extension:activate bootstrap_package
 ./typo3cms extension:activate introduction
@@ -56,4 +65,4 @@ cp vendor/typo3/cms/_.htaccess web/.htaccess
 ./typo3cms cleanup:updatereferenceindex
 ./typo3cms cache:flush
 
-echo "8x ready"
+echo "dev-master ready"

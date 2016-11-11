@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-mkdir /var/www/7x.local.typo3.org
+# mkdir /var/www/7x.local.typo3.org
 cd /var/www/7x.local.typo3.org
 #  rm -rf /var/www/7x.local.typo3.org/*
 #  sudo mysqladmin -uroot -pvagrant drop t3_7x_local;
