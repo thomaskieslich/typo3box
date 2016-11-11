@@ -70,6 +70,7 @@ character-set-server = utf8 /' /etc/mysql/my.cnf
 
 service mysql restart
 
+#prepare www dir and user
 rm -r /var/www/*
 mkdir -p /var/www
 mkdir /var/www/html
@@ -81,3 +82,13 @@ sed -i 's|[#]*PasswordAuthentication no|PasswordAuthentication yes|g' /etc/ssh/s
 
 chown www-data.www-data /var/www -R
 service apache2 restart
+
+##MailHog
+wget https://github.com/mailhog/MailHog/releases/download/v0.2.1/MailHog_linux_amd64
+mv MailHog_linux_amd64 /usr/local/bin/mailhog
+chmod +x /usr/local/bin/mailhog
+
+echo "@reboot root mailhog" >> /etc/crontab
+
+sed -i "s/;sendmail_path =/sendmail_path = \/usr\/local\/bin\/mailhog sendmail/" /etc/php5/fpm/php.ini
+sed -i "s/;sendmail_path =/sendmail_path = \/usr\/local\/bin\/mailhog sendmail/" /etc/php/7.0/fpm/php.ini

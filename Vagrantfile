@@ -28,7 +28,7 @@ Vagrant.configure("2") do |config|
       "8x.local.typo3.org",
       "dev-master.local.typo3.org"
   ]
-  
+
   if $mode=="install"
     config.vm.provision "shell", path: "scripts/lamp.sh"
 
