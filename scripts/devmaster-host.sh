@@ -41,4 +41,4 @@ service apache2 restart
 
 echo "dev-master host init"
 
-su -c "source /vagrant/scripts/dev-master-init.sh" www-data
+su -c "source /vagrant/scripts/devmaster-init.sh" www-data
