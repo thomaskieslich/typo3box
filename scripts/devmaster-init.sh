@@ -19,6 +19,10 @@ echo '
     {
       "type": "git",
       "url": "https://github.com/TYPO3-Console/typo3_console.git"
+    },
+    {
+      "type": "git",
+      "url": "https://github.com/pixelant/frontend_editing.git"
     }
   ],
    "minimum-stability": "dev",
@@ -41,6 +45,9 @@ ln -s vendor/bin/typo3cms
 chmod +x typo3cms
 
 composer require "typo3-ter/introduction:^2.3"
+
+composer require "pixelant/frontend-editing:dev-master"
+
 composer require "dmitryd/typo3-realurl:^2.1.0"
 
 ./typo3cms install:setup --non-interactive \
