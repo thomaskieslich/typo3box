@@ -24,6 +24,7 @@ Vagrant.configure("2") do |config|
   
   config.vm.hostname = "local.typo3.org"
   config.hostsupdater.aliases = [
+#       "prj.example.org",
       "7x.local.typo3.org",
       "8x.local.typo3.org",
       "dev-master.local.typo3.org"
@@ -31,6 +32,8 @@ Vagrant.configure("2") do |config|
 
   if $mode=="install"
     config.vm.provision "shell", path: "scripts/lamp.sh"
+
+#     config.vm.provision "shell", path: "scripts/x-host.sh", env: {"PROJECT" => "prj", "HOST" => "example.org"}
 
     config.vm.provision "shell", path: "scripts/7x-host.sh"
     config.vm.provision "shell", path: "scripts/8x-host.sh"
