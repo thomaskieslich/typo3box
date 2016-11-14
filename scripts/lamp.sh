@@ -19,8 +19,8 @@ echo "ServerName localhost" | tee /etc/apache2/httpd.conf > /dev/null
 a2enmod rewrite deflate expires headers actions alias
 
 apt-get -y --force-yes install php-zip php-mbstring php-pear php-bz2 php-curl php-xml php-soap
-apt-get -y --force-yes install php5-fpm php5-cli php5-gd php5-mysql php5-pgsql php5-sqlite php5-curl php5-mcrypt php5-imap php5-xmlrpc php5-xsl
-apt-get -y --force-yes install php7.0-fpm php7.0-cli php7.0-gd php7.0-mysql php7.0-pgsql php7.0-sqlite php7.0-curl php7.0-mcrypt php7.0-imap php7.0-xmlrpc php7.0-xsl
+apt-get -y --force-yes install php5-fpm php5-cli php5-gd php5-mysql php5-pgsql php5-sqlite php5-curl php5-mcrypt php5-imap php5-xmlrpc php5-xsl php5-ldap
+apt-get -y --force-yes install php7.0-fpm php7.0-cli php7.0-gd php7.0-mysql php7.0-pgsql php7.0-sqlite php7.0-curl php7.0-mcrypt php7.0-imap php7.0-xmlrpc php7.0-xsl php7.0-ldap
 
 echo "
 <IfModule mod_fastcgi.c>

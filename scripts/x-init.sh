@@ -51,7 +51,7 @@ composer require "dmitryd/typo3-realurl:^2.1.0"
     --database-user-password="vagrant" \
     --database-host-name="localhost" \
     --database-port="3306" \
-    --database-name="$PROJECT" \
+    --database-name="${PROJECT//[^a-zA-Z0-9]/_}" \
     --admin-user-name="cms-admin" \
     --admin-password="admin123" \
     --site-name="$PROJECT"
