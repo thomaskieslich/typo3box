@@ -37,9 +37,13 @@ service apache2 restart
 sed -i "s/max_execution_time = .*/max_execution_time = 240/" /etc/php5/fpm/php.ini
 sed -i "s/; max_input_vars = .*/max_input_vars = 1500/" /etc/php5/fpm/php.ini
 sed -i "s/;always_populate_raw_post_data = .*/always_populate_raw_post_data=-1/" /etc/php5/fpm/php.ini
+sed -i "s/post_max_size = .*/post_max_size = 128M/" /etc/php5/fpm/php.ini
+sed -i "s/upload_max_filesize = .*/upload_max_filesize = 128M/" /etc/php5/fpm/php.ini
 
 sed -i "s/max_execution_time = .*/max_execution_time = 240/" /etc/php/7.0/fpm/php.ini
 sed -i "s/; max_input_vars = .*/max_input_vars = 1500/" /etc/php/7.0/fpm/php.ini
+sed -i "s/post_max_size = .*/post_max_size = 128M/" /etc/php/7.0/fpm/php.ini
+sed -i "s/upload_max_filesize = .*/upload_max_filesize = 128M/" /etc/php/7.0/fpm/php.ini
 
 service php5-fpm restart
 service php7.0-fpm restart
