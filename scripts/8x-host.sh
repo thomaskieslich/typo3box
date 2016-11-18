@@ -2,11 +2,11 @@
 
 echo "
 <VirtualHost *:80>
-DocumentRoot /var/www/8x.local.typo3.org/web
-ServerName 8x.local.typo3.org
+DocumentRoot /var/www/8x/web
+ServerName 8x.t3b.example.org
 ServerAlias 8x.*.xip.io
 
-<Directory /var/www/8x.local.typo3.org/>
+<Directory /var/www/8x/>
     Options Indexes FollowSymLinks
     AllowOverride All
     Require all granted
@@ -33,7 +33,7 @@ FastCgiExternalServer /usr/lib/cgi-bin/php-8x -appConnTimeout 10 -idle-timeout 2
 
 a2ensite 8x.conf
 
-mkdir /var/www/8x.local.typo3.org
+mkdir /var/www/8x
 
 chown www-data.www-data /var/www -R
 

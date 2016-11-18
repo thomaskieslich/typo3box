@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
-# mkdir /var/www/8x.local.typo3.org
-cd /var/www/8x.local.typo3.org
-#  rm -rf /var/www/8x.local.typo3.org/*
-#  sudo mysqladmin -uroot -pvagrant drop t3_8x_local;
+# mkdir /var/www/8x
+cd /var/www/8x
+#  rm -rf /var/www/8x/*
+#  sudo mysqladmin -uroot -pvagrant drop t3_8x;
 
 echo '
 {
@@ -39,7 +39,7 @@ composer require "dmitryd/typo3-realurl:^2.1.0"
     --database-user-password="vagrant" \
     --database-host-name="localhost" \
     --database-port="3306" \
-    --database-name="t3_8x_local" \
+    --database-name="t3_8x" \
     --admin-user-name="cms-admin" \
     --admin-password="admin123" \
     --site-name="TYPO3 8x"

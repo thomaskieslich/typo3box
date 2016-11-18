@@ -92,6 +92,8 @@ wget https://github.com/mailhog/MailHog/releases/download/v0.2.1/MailHog_linux_a
 mv MailHog_linux_amd64 /usr/local/bin/mailhog
 chmod +x /usr/local/bin/mailhog
 
+#mailhog &>/dev/null &
+
 echo "@reboot root mailhog" >> /etc/crontab
 
 sed -i "s/;sendmail_path =/sendmail_path = \/usr\/local\/bin\/mailhog sendmail/" /etc/php5/fpm/php.ini

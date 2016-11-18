@@ -6,8 +6,8 @@ Vagrant.configure("2") do |config|
   config.vm.box = "debian/jessie64"
 
   config.vm.network :private_network,
-    ip: "10.0.0.11",
-    hostsupdater: "skip"
+    ip: "10.0.0.11"
+    #,hostsupdater: "skip"
 
   config.vm.network :public_network,
     ip: "192.168.67.211",
@@ -22,12 +22,14 @@ Vagrant.configure("2") do |config|
     vb.customize ["modifyvm", :id, "--vram", 16]
   end
   
-  config.vm.hostname = "local.typo3.org"
+  config.vm.hostname = "t3b.example.org"
   config.hostsupdater.aliases = [
 #       "prj.example.org",
-      "7x.local.typo3.org",
-      "8x.local.typo3.org",
-      "dev-master.local.typo3.org"
+      "7x.t3b.example.org",
+      "8x.t3b.example.org",
+      "dev-master.t3b.example.org",
+      "phpmyadmin.t3b.example.org",
+      "webgrind.t3b.example.org"
   ]
 
   if $mode=="install"
@@ -38,6 +40,9 @@ Vagrant.configure("2") do |config|
     config.vm.provision "shell", path: "scripts/7x-host.sh"
     config.vm.provision "shell", path: "scripts/8x-host.sh"
     config.vm.provision "shell", path: "scripts/devmaster-host.sh"
+
+    config.vm.provision "shell", path: "scripts/phpmyadmin.sh"
+    config.vm.provision "shell", path: "scripts/xdebug.sh"
 
   end
 end

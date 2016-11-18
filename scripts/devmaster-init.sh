@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
-#mkdir /var/www/dev-master.local.typo3.org
-cd /var/www/dev-master.local.typo3.org
-#  rm -rf /var/www/dev-master.local.typo3.org/*
-#  sudo mysqladmin -uroot -pvagrant drop t3_devmaster_local;
+#mkdir /var/www/dev-master
+cd /var/www/dev-master
+#  rm -rf /var/www/dev-master/*
+#  sudo mysqladmin -uroot -pvagrant drop t3_dev_master;
 
 echo '
 {
@@ -49,7 +49,7 @@ composer require "dmitryd/typo3-realurl:^2.1.0"
     --database-user-password="vagrant" \
     --database-host-name="localhost" \
     --database-port="3306" \
-    --database-name="t3_devmaster_local" \
+    --database-name="t3_dev_master" \
     --admin-user-name="cms-admin" \
     --admin-password="admin123" \
     --site-name="TYPO3 dev-master"

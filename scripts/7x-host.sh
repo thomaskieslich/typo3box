@@ -2,11 +2,11 @@
 
 echo "
 <VirtualHost *:80>
-DocumentRoot /var/www/7x.local.typo3.org/web
-ServerName 7x.local.typo3.org
+DocumentRoot /var/www/7x/web
+ServerName 7x.t3b.example.org
 ServerAlias 7x.*.xip.io
 
-<Directory /var/www/7x.local.typo3.org/>
+<Directory /var/www/7x/>
     Options Indexes FollowSymLinks
     AllowOverride All
     Require all granted
@@ -33,7 +33,7 @@ FastCgiExternalServer /usr/lib/cgi-bin/php5-7x -appConnTimeout 10 -idle-timeout 
 
 a2ensite 7x.conf
 
-mkdir /var/www/7x.local.typo3.org
+mkdir /var/www/7x
 
 chown www-data.www-data /var/www -R
 

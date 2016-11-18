@@ -2,11 +2,11 @@
 
 echo "
 <VirtualHost *:80>
-DocumentRoot /var/www/dev-master.local.typo3.org/web
-ServerName dev-master.local.typo3.org
+DocumentRoot /var/www/dev-master/web
+ServerName dev-master.t3b.example.org
 ServerAlias dev-master.*.xip.io
 
-<Directory /var/www/dev-master.local.typo3.org/>
+<Directory /var/www/dev-master/>
     Options Indexes FollowSymLinks
     AllowOverride All
     Require all granted
@@ -33,7 +33,7 @@ FastCgiExternalServer /usr/lib/cgi-bin/php-dev-master -appConnTimeout 10 -idle-t
 
 a2ensite dev-master.conf
 
-mkdir /var/www/dev-master.local.typo3.org
+mkdir /var/www/dev-master
 
 chown www-data.www-data /var/www -R
 
