@@ -32,6 +32,10 @@ Vagrant.configure("2") do |config|
       "webgrind.t3b.example.org"
   ]
 
+#     config.vm.synced_folder "~/Projects/src...", "/var/www/target...",
+#       create: true,
+#       owner: "www-data", group: "www-data"
+
   if $mode=="install"
     config.vm.provision "shell", path: "scripts/lamp.sh"
 
