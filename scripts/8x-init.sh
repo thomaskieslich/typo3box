@@ -10,11 +10,19 @@ echo '
   "repositories": [
     {
       "type": "composer",
-      "url": "https://composer.typo3.org/"
+      "url": "https://composer.typo3.org"
+    },
+    {
+      "type": "git",
+      "url": "https://github.com/dmitryd/typo3-realurl.git"
+    },
+    {
+      "type": "git",
+      "url": "https://github.com/TYPO3-Console/typo3_console.git"
     }
   ],
   "require": {
-    "typo3/cms": "^8.4.0"
+    "typo3/cms": "8.5.1 as 8.4.0"
   },
   "extra": {
     "typo3/cms": {
@@ -32,7 +40,7 @@ ln -s vendor/bin/typo3cms
 chmod +x typo3cms
 
 composer require "typo3-ter/introduction:^2.3"
-composer require "dmitryd/typo3-realurl:^2.1.0"
+composer require "dmitryd/typo3-realurl:^2.1.5"
 
 ./typo3cms install:setup --non-interactive \
     --database-user-name="root" \

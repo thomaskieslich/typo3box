@@ -42,7 +42,7 @@ chmod +x typo3cms
 
 composer require "typo3-ter/introduction:^2.3"
 
-composer require "dmitryd/typo3-realurl:^2.1.0"
+composer require "dmitryd/typo3-realurl:^2.1.5"
 
 ./typo3cms install:setup --non-interactive \
     --database-user-name="root" \
