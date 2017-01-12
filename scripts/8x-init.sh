@@ -48,7 +48,7 @@ composer require "dmitryd/typo3-realurl:^2.1.5"
     --database-host-name="localhost" \
     --database-port="3306" \
     --database-name="t3_8x" \
-    --admin-user-name="t3-admin" \
+    --admin-user-name="t3b-admin" \
     --admin-password="admin123" \
     --site-name="TYPO3 8x"
 
