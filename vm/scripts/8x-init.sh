@@ -11,7 +11,10 @@ echo '
     }
   ],
   "require": {
-    "typo3/cms": "^8.7"
+    "typo3/cms": "^8.7",
+    "helhum/typo3-console": "^4.6",
+    "typo3-ter/introduction": "^3.0",
+    "typo3-ter/realurl": "^2.2"
   },
   "extra": {
     "typo3/cms": {
@@ -28,12 +31,9 @@ echo '
 
 composer install --no-interaction
 
-composer require "helhum/typo3-console:^4.6"
+## for typo3-console
 ln -s vendor/bin/typo3cms
 chmod +x typo3cms
-
-composer require "typo3-ter/introduction:^2.3"
-composer require "dmitryd/typo3-realurl:^2.2.0"
 
 ./typo3cms install:setup --non-interactive  \
  --database-user-name="root"  \
@@ -46,6 +46,7 @@ composer require "dmitryd/typo3-realurl:^2.2.0"
  --site-name="TYPO3 8x"
 
 ./typo3cms extension:activate beuser
+./typo3cms extension:activate scheduler
 ./typo3cms extension:activate rte_ckeditor
 ./typo3cms extension:activate context_help
 ./typo3cms extension:activate viewpage
@@ -74,8 +75,6 @@ composer require "dmitryd/typo3-realurl:^2.2.0"
 
 ./typo3cms extension:activate bootstrap_package
 ./typo3cms extension:activate introduction
-
-./typo3cms extension:activate scheduler
 ./typo3cms extension:activate realurl
 
 cp vendor/typo3/cms/_.htaccess web/.htaccess

@@ -7,3 +7,5 @@ Vagrant with Vbox with base TYPO3 Installations. With current LTS and Dev Projec
  [typo3_console](https://github.com/TYPO3-Console/typo3_console).
 Next php Version comes from [dotdeb.org](https://www.dotdeb.org/)
 
+
+scp -r www-data@10.0.0.11:/var/www/8x /Users/thomask/Aktuell/develop/vagrant/typo3box/src/8x

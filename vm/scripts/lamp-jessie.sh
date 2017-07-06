@@ -12,7 +12,7 @@ echo "deb-src http://packages.dotdeb.org jessie all" >> /etc/apt/sources.list
 
 apt-get update
 apt-get -y --force-yes upgrade
-apt-get -y install graphicsmagick imagemagick git-core unzip python-setuptools graphviz curl virtualbox-guest-utils
+apt-get -y install graphicsmagick imagemagick git-core unzip python-setuptools graphviz curl
 
 ##base mysql user
 debconf-set-selections <<< 'mysql-server mysql-server/root_password password vagrant'

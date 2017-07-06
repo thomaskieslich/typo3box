@@ -1,6 +1,4 @@
-*~
-.DS_Store
-.idea
-
-.vagrant
-www/*
+*
+!/README.md
+!/vm/*
+vm/.vagrant

@@ -20,10 +20,6 @@ ServerAlias 7x.*.xip.io
 Alias /php-fcgi /usr/lib/cgi-bin/php5-7x
 FastCgiExternalServer /usr/lib/cgi-bin/php5-7x -appConnTimeout 10 -idle-timeout 250 -socket /var/run/php5-fpm.sock -pass-header Authorization
 
-# PHP7
-#Alias /php-fcgi /usr/lib/cgi-bin/php
-#FastCgiExternalServer /usr/lib/cgi-bin/php -appConnTimeout 10 -idle-timeout 250 -socket /run/php/php7.0-fpm.sock -pass-header Authorization
-
  <Directory /usr/lib/cgi-bin>
   Require all granted
  </Directory>
