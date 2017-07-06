@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-apt-get -y --force-yes install php5-xdebug php7.0-xdebug
+apt-get -y --force-yes install php5-xdebug php5.6-xdebug php7.0-xdebug php7.1-xdebug
 
 echo "zend_extension=xdebug.so
 xdebug.remote_enable = on
@@ -32,9 +32,43 @@ xdebug.profiler_append = 0
 xdebug.profiler_enable_trigger = 1
 #xdebug.profiler_output_dir = /var/www/webtools/profiles
 #xdebug.profiler_output_name = callgrind.out.%s
+" > /etc/php/5.6/mods-available/xdebug.ini
+
+rm /etc/php5.6/cli/conf.d/20-xdebug.ini
+
+echo "zend_extension=xdebug.so
+xdebug.remote_enable = on
+xdebug.remote_handler = dbgp
+xdebug.remote_host = 10.0.0.22
+xdebug.remote_port = 9001
+
+xdebug.max_nesting_level = 500
+
+xdebug.profiler_enable = 0
+xdebug.profiler_append = 0
+xdebug.profiler_enable_trigger = 1
+#xdebug.profiler_output_dir = /var/www/webtools/profiles
+#xdebug.profiler_output_name = callgrind.out.%s
 " > /etc/php/7.0/mods-available/xdebug.ini
 
 rm /etc/php/7.0/cli/conf.d/20-xdebug.ini
+
+echo "zend_extension=xdebug.so
+xdebug.remote_enable = on
+xdebug.remote_handler = dbgp
+xdebug.remote_host = 10.0.0.22
+xdebug.remote_port = 9001
+
+xdebug.max_nesting_level = 500
+
+xdebug.profiler_enable = 0
+xdebug.profiler_append = 0
+xdebug.profiler_enable_trigger = 1
+#xdebug.profiler_output_dir = /var/www/webtools/profiles
+#xdebug.profiler_output_name = callgrind.out.%s
+" > /etc/php/7.1/mods-available/xdebug.ini
+
+rm /etc/php/7.1/cli/conf.d/20-xdebug.ini
 
 mkdir /var/www/webtools
 cd /var/www/webtools

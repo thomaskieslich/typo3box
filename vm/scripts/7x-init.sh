@@ -27,7 +27,7 @@ echo '
 
 composer install --no-interaction
 
-composer require "helhum/typo3-console:^4.0"
+composer require "helhum/typo3-console:^4.1"
 ln -s vendor/bin/typo3cms
 chmod +x typo3cms
 

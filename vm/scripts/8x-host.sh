@@ -16,10 +16,6 @@ ServerAlias 8x.*.xip.io
  AddType application/x-httpd-fastphp .php
  Action application/x-httpd-fastphp /php-fcgi
 
-# PHP5
-# Alias /php-fcgi /usr/lib/cgi-bin/php5-fcgi
-# FastCgiExternalServer /usr/lib/cgi-bin/php5-fcgi -appConnTimeout 10 -idle-timeout 250 -socket /var/run/php5-fpm.sock -pass-header Authorization
-
 # PHP7
 Alias /php-fcgi /usr/lib/cgi-bin/php-8x
 FastCgiExternalServer /usr/lib/cgi-bin/php-8x -appConnTimeout 10 -idle-timeout 250 -socket /run/php/php7.0-fpm.sock -pass-header Authorization

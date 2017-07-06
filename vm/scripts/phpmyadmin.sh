@@ -24,7 +24,7 @@ ServerName phpmyadmin.t3b.example.org
 
 # PHP7
 Alias /php-fcgi /usr/lib/cgi-bin/php-phpmyadmin
-FastCgiExternalServer /usr/lib/cgi-bin/php-phpmyadmin -appConnTimeout 10 -idle-timeout 1800 -socket /run/php/php7.0-fpm.sock -pass-header Authorization
+FastCgiExternalServer /usr/lib/cgi-bin/php-phpmyadmin -appConnTimeout 10 -idle-timeout 240 -socket /run/php/php7.0-fpm.sock -pass-header Authorization
 
  <Directory /usr/lib/cgi-bin>
   Require all granted

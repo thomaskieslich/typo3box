@@ -23,7 +23,7 @@ echo '
   ],
    "minimum-stability": "dev",
   "require": {
-    "typo3/cms": "dev-master as 8.4.0"
+    "typo3/cms": "dev-master as 8.7.2"
   },
   "extra": {
     "typo3/cms": {
@@ -36,13 +36,13 @@ echo '
 
 composer install --no-interaction
 
-composer require "helhum/typo3-console:^4.0"
+composer require "helhum/typo3-console:^4.1"
 ln -s vendor/bin/typo3cms
 chmod +x typo3cms
 
 composer require "typo3-ter/introduction:^2.3"
 
-composer require "dmitryd/typo3-realurl:^2.1.5"
+composer require "dmitryd/typo3-realurl:^2.2.0"
 
 ./typo3cms install:setup --non-interactive \
     --database-user-name="root" \
@@ -58,6 +58,7 @@ composer require "dmitryd/typo3-realurl:^2.1.5"
 ./typo3cms extension:activate introduction
 
 ./typo3cms extension:activate scheduler
+./typo3cms extension:activate recycler
 ./typo3cms extension:activate realurl
 cp vendor/typo3/cms/_.htaccess web/.htaccess
 
